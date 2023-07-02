@@ -1,5 +1,6 @@
 import 'dart:core';
 
+import 'package:dm_support/common_drawer.dart';
 import 'package:flutter/material.dart';
 import "package:dm_support/constants.dart";
 import 'package:fluttertoast/fluttertoast.dart';
@@ -248,7 +249,8 @@ class _ProfileDataState extends State<ProfileData> {
               )
           )
         ]
-      )
+      ),
+      drawer: DMDrawer(),
     );
   }
 

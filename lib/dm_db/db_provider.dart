@@ -9,15 +9,16 @@ class DbProvider{
   static late DbProvider _dbProvider;
   static late Database dmDb;
 
+  // ignore: unused_element
   DbProvider._createInstance(); //named instance
 
   factory DbProvider(){
-    _dbProvider ??= DbProvider._createInstance();
+    //_dbProvider ??= DbProvider._createInstance();
     return _dbProvider;
   }
 
   static Future<Database> get dataBase async{
-    dmDb ??= await initDb();
+    //dmDb ??= await initDb();
     return dmDb;
   }
 

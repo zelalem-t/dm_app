@@ -1,8 +1,13 @@
-import 'package:dm_support/splashscreen.dart';
+import 'package:dm_support/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+
+import 'home.dart';
 
 void main() {
-  runApp(const MyApp());
+   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -26,9 +31,44 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const DMSplashScreen(),
+      home:  const HomePage(),//const SplashScreen(title:"አንኳን ደህና መጡ"),
     );
   }
+}
+
+class SplashScreen extends StatefulWidget{
+  const SplashScreen({super.key, required this.title});
+
+  final String title;
+  @override
+  State<SplashScreen> createState() => _MySplashScreen();
+}
+
+class _MySplashScreen extends State<SplashScreen>{
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initialization();
+  }
+
+  void initialization() async{
+              FlutterNativeSplash.remove();
+  }
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title) 
+      ),
+      body:const Center(
+       
+      ),
+      
+    );
+  }
+
 }
 
 
